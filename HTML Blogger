@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true'
+      xmlns='http://www.w3.org/1999/xhtml'
+      xmlns:b='http://www.google.com/2005/gml/b'
+      xmlns:data='http://www.google.com/2005/gml/data'
+      xmlns:expr='http://www.google.com/2005/gml/expr'>
 
 <head>
   <meta content='width=device-width, initial-scale=1' name='viewport'/>
@@ -84,36 +88,95 @@
 </head>
 
 <body>
-  <b:section class='radio-section' id='radio' showaddelement='no'/>
+  <b:section id='radio' class='radio-section' showaddelement='no'>
+    <header>
+      <h1>Radio Rural Itauense</h1>
+      <p>A sua web rádio 24 horas no ar!</p>
+    </header>
+
+    <nav>
+      <a onclick="mostrarPrincipal()">Início</a>
+      <a onclick="mostrarPlayer()">Ouça ao Vivo</a>
+      <a onclick="mostrarSobre()">Sobre</a>
+      <a id="contato" href="https://instagram.com/radioruralitauense" target="_blank">Contato</a>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <div id="principal">
+      <section class="player" id="player">
+        <div class="contador">
+          <span class="online-dot"></span> Ouvintes online agora: <span id="ouvintes">0</span>
+        </div>
+        <h2>Ouça Agora</h2>
+        <audio controls="controls" autoplay="autoplay">
+          <source src="https://stream.zeno.fm/ul4nuq3k3dzvv" type="audio/mpeg" />
+          Seu navegador não suporta o player de áudio.
+        </audio>
+      </section>
+
+      <!-- Banner Adsterra 300x250 -->
+      <section id="banner-adsterra" style="text-align:center; padding:30px;">
+        <script>
+          atOptions = {
+            'key' : '41c4547c6b9eb41b132c9eacb0f7a660',
+            'format' : 'iframe',
+            'height' : 250,
+            'width' : 300,
+            'params' : {}
+          };
+        </script>
+        <script src="https://www.highperformanceformat.com/41c4547c6b9eb41b132c9eacb0f7a660/invoke.js"></script>
+      </section>
+
+      <!-- Banner Parceria (GIF clicável) -->
+      <section class="banner-parceria" style="text-align:center; padding:20px;">
+        <a href="https://instagram.com/radioruralitauense" target="_blank">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMv2RbJQCf5e8ddP3b4T3THp1321-jedMnCZZvumH9gWvJYePjmVBkG0AkpZiaHehnRs03FxSH613EIgYAl-7sFaNtvNJ3i8CzmmZlFHm-TfrFfwDLsuUtV3ycveBUP3m2PhCuemRLu9v_EoSzexm6OXSksCEQymqAEMtszW5ZizK-6qAs2mTWQJ6ohW8/s320/anuncie-aqui.gif" alt="Banner Parceria" />
+        </a>
+      </section>
+    </div>
+
+    <!-- Seção Sobre -->
+    <div id="sobre">
+      <h2>Sobre a Rádio</h2>
+      <p>A Rádio Rural Itauense é uma web rádio criada para levar música e entretenimento 24 horas por dia. 
+      Sem locutores fixos, nossa programação é composta por músicas variadas e vinhetas exclusivas da rádio. 
+      Nosso objetivo é oferecer companhia musical constante e ser um espaço aberto para ouvintes e parceiros.</p>
+    </div>
+
+    <footer>
+      <p>&#169; 2026 Radio Rural Itauense - Todos os direitos reservados</p>
+    </footer>
+  </b:section>
 
   <!-- Script -->
   <script>
     function mostrarPrincipal() {
-      document.getElementById(&quot;principal&quot;).style.display = &quot;block&quot;;
-      document.getElementById(&quot;sobre&quot;).style.display = &quot;none&quot;;
+      document.getElementById("principal").style.display = "block";
+      document.getElementById("sobre").style.display = "none";
     }
     function mostrarPlayer() {
-      document.getElementById(&quot;principal&quot;).style.display = &quot;block&quot;;
-      document.getElementById(&quot;sobre&quot;).style.display = &quot;none&quot;;
-      window.location.hash = &quot;player&quot;;
+      document.getElementById("principal").style.display = "block";
+      document.getElementById("sobre").style.display = "none";
+      window.location.hash = "player";
     }
     function mostrarSobre() {
-      document.getElementById(&quot;principal&quot;).style.display = &quot;none&quot;;
-      document.getElementById(&quot;sobre&quot;).style.display = &quot;block&quot;;
+      document.getElementById("principal").style.display = "none";
+      document.getElementById("sobre").style.display = "block";
     }
 
-    // Simulador de ouvintes online (1601&#8211;1699)
+    // Simulador de ouvintes online (1601–1699)
     function atualizarOuvintes() {
       var min = 1601;
       var max = 1699;
       var ouvintes = Math.floor(Math.random() * (max - min + 1)) + min;
-      var span = document.getElementById(&quot;ouvintes&quot;);
+      var span = document.getElementById("ouvintes");
       if (span) {
         span.textContent = ouvintes;
       }
     }
 
-    document.addEventListener(&quot;DOMContentLoaded&quot;, function() {
+    document.addEventListener("DOMContentLoaded", function() {
       atualizarOuvintes();
       setInterval(atualizarOuvintes, 10000);
     });
