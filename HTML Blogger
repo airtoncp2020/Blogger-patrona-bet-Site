@@ -1,185 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true'
-      xmlns='http://www.w3.org/1999/xhtml'
-      xmlns:b='http://www.google.com/2005/gml/b'
-      xmlns:data='http://www.google.com/2005/gml/data'
-      xmlns:expr='http://www.google.com/2005/gml/expr'>
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'
+      xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b'
+      xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+  <head>
+    <meta expr:content='data:blog.isMobile ? "width=device-width,initial-scale=1.0" : "width=1100"' name='viewport'/>
+    <b:include data='blog' name='all-head-content'/>
+    <title>Site em Manutenção</title>
 
-<head>
-  <meta content='width=device-width, initial-scale=1' name='viewport'/>
-  <title><data:view.title.escaped/></title>
-  <b:include data='blog' name='all-head-content'/>
-
-  <b:skin><![CDATA[
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0d1b2a;
-      color: #fff;
-    }
-    header {
-      background: #1b263b;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-      color: #00ff00; /* Verde */
-    }
-    nav {
-      background: #415a77;
-      display: flex;
-      justify-content: center;
-      padding: 10px;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    nav a:hover {
-      color: #00ff00;
-    }
-    .player, #sobre {
-      text-align: center;
-      padding: 40px 20px;
-    }
-    audio {
-      width: 80%;
-      max-width: 500px;
-    }
-    footer {
-      background: #0d1b2a;
-      text-align: center;
-      padding: 15px;
-      font-size: 0.9em;
-      color: #aaa;
-    }
-    #sobre {
-      display: none; /* Oculto por padrão */
-      background: #1b263b;
-    }
-    #sobre h2 {
-      color: #00ff00;
-    }
-    .contador {
-      font-size: 1.2em;
-      margin-bottom: 20px;
-      color: #00ff00;
-    }
-    .online-dot {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      background-color: #00ff00;
-      border-radius: 50%;
-      margin-right: 6px;
-    }
-    .banner-parceria img {
-      width: 300px;
-      height: 250px;
-      object-fit: cover;
-    }
-  ]]></b:skin>
-</head>
-
-<body>
-  <b:section id='radio' class='radio-section' showaddelement='no'>
-    <header>
-      <h1>Radio Rural Itauense</h1>
-      <p>A sua web rádio 24 horas no ar!</p>
-    </header>
-
-    <nav>
-      <a onclick="mostrarPrincipal()">Início</a>
-      <a onclick="mostrarPlayer()">Ouça ao Vivo</a>
-      <a onclick="mostrarSobre()">Sobre</a>
-      <a id="contato" href="https://instagram.com/radioruralitauense" target="_blank">Contato</a>
-    </nav>
-
-    <!-- Conteúdo principal -->
-    <div id="principal">
-      <section class="player" id="player">
-        <div class="contador">
-          <span class="online-dot"></span> Ouvintes online agora: <span id="ouvintes">0</span>
-        </div>
-        <h2>Ouça Agora</h2>
-        <audio controls="controls" autoplay="autoplay">
-          <source src="https://stream.zeno.fm/ul4nuq3k3dzvv" type="audio/mpeg" />
-          Seu navegador não suporta o player de áudio.
-        </audio>
-      </section>
-
-      <!-- Banner Adsterra 300x250 -->
-      <section id="banner-adsterra" style="text-align:center; padding:30px;">
-        <script>
-          atOptions = {
-            'key' : '41c4547c6b9eb41b132c9eacb0f7a660',
-            'format' : 'iframe',
-            'height' : 250,
-            'width' : 300,
-            'params' : {}
-          };
-        </script>
-        <script src="https://www.highperformanceformat.com/41c4547c6b9eb41b132c9eacb0f7a660/invoke.js"></script>
-      </section>
-
-      <!-- Banner Parceria (GIF clicável) -->
-      <section class="banner-parceria" style="text-align:center; padding:20px;">
-        <a href="https://instagram.com/radioruralitauense" target="_blank">
-          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMv2RbJQCf5e8ddP3b4T3THp1321-jedMnCZZvumH9gWvJYePjmVBkG0AkpZiaHehnRs03FxSH613EIgYAl-7sFaNtvNJ3i8CzmmZlFHm-TfrFfwDLsuUtV3ycveBUP3m2PhCuemRLu9v_EoSzexm6OXSksCEQymqAEMtszW5ZizK-6qAs2mTWQJ6ohW8/s320/anuncie-aqui.gif" alt="Banner Parceria" />
-        </a>
-      </section>
-    </div>
-
-    <!-- Seção Sobre -->
-    <div id="sobre">
-      <h2>Sobre a Rádio</h2>
-      <p>A Rádio Rural Itauense é uma web rádio criada para levar música e entretenimento 24 horas por dia. 
-      Sem locutores fixos, nossa programação é composta por músicas variadas e vinhetas exclusivas da rádio. 
-      Nosso objetivo é oferecer companhia musical constante e ser um espaço aberto para ouvintes e parceiros.</p>
-    </div>
-
-    <footer>
-      <p>&#169; 2026 Radio Rural Itauense - Todos os direitos reservados</p>
-    </footer>
-  </b:section>
-
-  <!-- Script -->
-  <script>
-    function mostrarPrincipal() {
-      document.getElementById("principal").style.display = "block";
-      document.getElementById("sobre").style.display = "none";
-    }
-    function mostrarPlayer() {
-      document.getElementById("principal").style.display = "block";
-      document.getElementById("sobre").style.display = "none";
-      window.location.hash = "player";
-    }
-    function mostrarSobre() {
-      document.getElementById("principal").style.display = "none";
-      document.getElementById("sobre").style.display = "block";
-    }
-
-    // Simulador de ouvintes online (1601–1699)
-    function atualizarOuvintes() {
-      var min = 1601;
-      var max = 1699;
-      var ouvintes = Math.floor(Math.random() * (max - min + 1)) + min;
-      var span = document.getElementById("ouvintes");
-      if (span) {
-        span.textContent = ouvintes;
+    <!-- BLOCO OBRIGATÓRIO DE SKIN -->
+    <b:skin><![CDATA[
+      body {
+        background-color: #222;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 50px;
       }
-    }
+      .container {
+        max-width: 600px;
+        margin: auto;
+        background: #333;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      }
+      h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: #ffcc00;
+      }
+      p {
+        font-size: 18px;
+        line-height: 1.6;
+      }
+    ]]></b:skin>
+  </head>
 
-    document.addEventListener("DOMContentLoaded", function() {
-      atualizarOuvintes();
-      setInterval(atualizarOuvintes, 10000);
-    });
-  </script>
-</body>
+  <body expr:class='"loading" + data:blog.mobileClass'>
+    <!-- BLOCO OBRIGATÓRIO DE SECTION -->
+    <b:section id='main' class='main' showaddelement='no'>
+      <div class="container">
+        <h1>🚧 Site em Manutenção 🚧</h1>
+        <p>Nossa equipe técnica de TI está realizando ajustes e melhorias.</p>
+        <p>Em breve o site estará disponível novamente. Obrigado pela compreensão!</p>
+      </div>
+    </b:section>
+  </body>
 </html>
