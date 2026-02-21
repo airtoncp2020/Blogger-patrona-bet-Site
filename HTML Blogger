@@ -1,51 +1,148 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html>
-<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'
-      xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b'
-      xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<html b:version='2' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
   <head>
-    <meta expr:content='data:blog.isMobile ? "width=device-width,initial-scale=1.0" : "width=1100"' name='viewport'/>
-    <b:include data='blog' name='all-head-content'/>
-    <title>Site em Manutenção</title>
-
-    <!-- BLOCO OBRIGATÓRIO DE SKIN -->
+    <title>PATRONA BET</title>
     <b:skin><![CDATA[
       body {
-        background-color: #222;
-        color: #fff;
-        font-family: Arial, sans-serif;
-        text-align: center;
         margin: 0;
-        padding: 50px;
+        font-family: Arial, sans-serif;
+        background: #111;
+        color: #fff;
       }
-      .container {
-        max-width: 600px;
-        margin: auto;
+      header {
+        background: #222;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      header img {
+        height: 40px;
+        cursor: pointer;
+      }
+      header .buttons a {
+        margin-left: 10px;
+        color: #fff;
+        text-decoration: none;
+        background: #f5c518;
+        padding: 6px 12px;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+      .menu {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        background: #222;
+        padding: 10px;
+      }
+      .menu a {
+        color: #fff;
+        text-decoration: none;
         background: #333;
-        padding: 40px;
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        padding: 8px 12px;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
       }
-      h1 {
-        font-size: 36px;
-        margin-bottom: 20px;
-        color: #ffcc00;
+      .menu a:hover {
+        background: #444;
       }
-      p {
-        font-size: 18px;
-        line-height: 1.6;
+      .content {
+        padding: 20px;
+        text-align: center;
+      }
+      .content h1 {
+        font-size: 22px;
+        color: #f5c518;
+      }
+      .games {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        padding: 20px;
+      }
+      .game {
+        background: #222;
+        border-radius: 8px;
+        padding: 10px;
+        text-align: center;
+      }
+      .game img {
+        width: 100%;
+        border-radius: 5px;
+      }
+      .game h3 {
+        font-size: 14px;
+        margin: 8px 0;
+        color: #fff;
+      }
+      .game button {
+        background: #f5c518;
+        border: none;
+        padding: 8px;
+        width: 100%;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 5px;
       }
     ]]></b:skin>
   </head>
 
-  <body expr:class='"loading" + data:blog.mobileClass'>
-    <!-- BLOCO OBRIGATÓRIO DE SECTION -->
-    <b:section id='main' class='main' showaddelement='no'>
-      <div class="container">
-        <h1>🚧 Site em Manutenção 🚧</h1>
-        <p>Nossa equipe técnica de TI está realizando ajustes e melhorias.</p>
-        <p>Em breve o site estará disponível novamente. Obrigado pela compreensão!</p>
-      </div>
-    </b:section>
+
+  <body expr:class='&quot;loading&quot; + data:blog.mobileClass'>
+    <b:section class='main' id='main' showaddelement='no'/>
+
+
+    <script>
+      function showPage(page) {
+        const content = document.getElementById(&quot;content&quot;);
+        if (page === &quot;inicio&quot;) {
+          content.innerHTML = `
+            <h1>Bem-vindo ao Patrona Bet</h1>
+            <p>Escolha uma das opções acima para começar.</p>
+          `;
+        } else if (page === &quot;cassino&quot;) {
+          content.innerHTML = `
+            <div class='games'>
+              <div class='game'>
+                <img alt='Cash Mania' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgK69xEfhUJcHod9wkj-V57SiNIcq5IwJQZVo6zekC6kYFKf8kS3TdMWUNK-HszsvHnv00SsvZXIjEVNBI7CppBTv-ZqIbvjP9C20Pb4_kYh5ufQzA8XBSZKg9MItuvyAD8YgY0tqLXvwaB5NRPWPzMQFSxhlbAMOyR9hlQDeKns_YCld5LqF_9etEvoXwT/s1600/CAS-MANIA.jpg'/>
+                <h3>Cash Mania</h3>
+                <button>Jogar Agora</button>
+              </div>
+              <div class='game'>
+                <img alt='Fortune Tiger' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDSD5kUfx2z4LPrGa9ogA61icYMX3qjB09U09dPhy3R_s024MQogWu57aNbB_FVEyo0bKLawuZGzLBFUz0gjwpmVKcSk-SeVtgKrNaDtu1KGxiirV2jfy4lR0gRfK2heFrpsMqK0YSQCmqLFUA36Z8R31Aomcv1IOxDyNzPDdb3OBXeRv8_W1vOaPsIVDS/s1600/FT-TIGER.jpg'/>
+                <h3>Fortune Tiger</h3>
+                <button>Jogar Agora</button>
+              </div>
+
+
+
+              <div class='game'>
+                <img alt='Fortune Dragon' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPSks1iLoJOeSMpi600WCe5eKyA8dJxR77W8iocsmV4XFuWvWvGeMYFrCg6lCC80rIMcJoQhWbER-OtgbIu7f8FuEd3OKLkrSyT7dGpIuQrJp6wBt67LF9aIQo8cN9pSJ_4I-MqAS1C3QIHicvBthtd4yUK1lUxyBq5kbxRjd4qo2cWcS4COmpsF-iabvA/s1600/FORTUNE%20DRAGO.jpg'/>
+                <h3>Fortune Dragon</h3>
+                <button>Jogar Agora</button>
+              </div>
+              <div class='game'>
+                <img alt='Fortune Rabbit' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-UfusRbslWGo8IyEatDM0CZiy3zeY1fiDTT66h0G1z7YDKV7LATySowutPoY5RHQVGnS2Yox8W5ktJJaRIZqufy58iP-LYB5ZJ0OIoPPkEk9smYPjv7DKjzgCYDwiUNdQTRfEzCgaHqw6MTIyWTxYr_hAhWhbpeu_-XczJ6Zfvg9C4Wwy4TDT5elaCqsD/s1600/fT-RABIT.jpg'/>
+                <h3>Fortune Rabbit</h3>
+                <button>Jogar Agora</button>
+              </div>
+            </div>
+          `;
+       
+        } else if (page === &quot;bicho&quot;) {
+          content.innerHTML = `
+            <h1>Jogo do Bicho</h1>
+            <p>Em breve disponível para você apostar.</p>
+          `;
+        } else if (page === &quot;esportes&quot;) {
+          content.innerHTML = `
+            <h1>Esportes</h1>
+            <p>Em breve disponível para você apostar.</p>
+          `;
+        }
+      }
+    </script>
   </body>
 </html>
