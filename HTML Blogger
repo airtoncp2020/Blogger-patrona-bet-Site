@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+  <head>
+    <meta expr:content='data:blog.isMobile ? &quot;width=device-width,initial-scale=1.0&quot; : &quot;width=1100&quot;' name='viewport'/>
+    <b:include data='blog' name='all-head-content'/>
+    <title>Site em Manutenção</title>
+
+    <!-- BLOCO OBRIGATÓRIO DE SKIN -->
+    <b:skin><![CDATA[
+      body {
+        background-color: #222;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 50px;
+      }
+      .container {
+        max-width: 600px;
+        margin: auto;
+        background: #333;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      }
+      h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: #ffcc00;
+      }
+      p {
+        font-size: 18px;
+        line-height: 1.6;
+      }
+    ]]></b:skin>
+  </head>
+
+  <body expr:class='&quot;loading&quot; + data:blog.mobileClass'>
+    <!-- BLOCO OBRIGATÓRIO DE SECTION -->
+    <b:section class='main' id='main' showaddelement='no'/>
+  </body>
+</html>
