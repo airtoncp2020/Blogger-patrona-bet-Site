@@ -1,43 +1,122 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
-  <head>
-    <meta expr:content='data:blog.isMobile ? &quot;width=device-width,initial-scale=1.0&quot; : &quot;width=1100&quot;' name='viewport'/>
-    <b:include data='blog' name='all-head-content'/>
-    <title>Site em Manutenção</title>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 
-    <!-- BLOCO OBRIGATÓRIO DE SKIN -->
-    <b:skin><![CDATA[
-      body {
-        background-color: #222;
-        color: #fff;
-        font-family: Arial, sans-serif;
-        text-align: center;
-        margin: 0;
-        padding: 50px;
-      }
-      .container {
-        max-width: 600px;
-        margin: auto;
-        background: #333;
-        padding: 40px;
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(0,0,0,0.5);
-      }
-      h1 {
-        font-size: 36px;
-        margin-bottom: 20px;
-        color: #ffcc00;
-      }
-      p {
-        font-size: 18px;
-        line-height: 1.6;
-      }
-    ]]></b:skin>
-  </head>
+<head>
+  <meta content='width=device-width, initial-scale=1' name='viewport'/>
+  <title><data:view.title.escaped/></title>
+  <b:include data='blog' name='all-head-content'/>
 
-  <body expr:class='&quot;loading&quot; + data:blog.mobileClass'>
-    <!-- BLOCO OBRIGATÓRIO DE SECTION -->
-    <b:section class='main' id='main' showaddelement='no'/>
-  </body>
+  <b:skin><![CDATA[
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0d1b2a;
+      color: #fff;
+    }
+    header {
+      background: #1b263b;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #00ff00; /* Verde */
+    }
+    nav {
+      background: #415a77;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    nav a:hover {
+      color: #00ff00;
+    }
+    .player, #sobre {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    audio {
+      width: 80%;
+      max-width: 500px;
+    }
+    footer {
+      background: #0d1b2a;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+      color: #aaa;
+    }
+    #sobre {
+      display: none; /* Oculto por padrão */
+      background: #1b263b;
+    }
+    #sobre h2 {
+      color: #00ff00;
+    }
+    .contador {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      color: #00ff00;
+    }
+    .online-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: #00ff00;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+    .banner-parceria img {
+      width: 300px;
+      height: 250px;
+      object-fit: cover;
+    }
+  ]]></b:skin>
+</head>
+
+<body>
+  <b:section class='radio-section' id='radio' showaddelement='no'/>
+
+  <!-- Script -->
+  <script>
+    function mostrarPrincipal() {
+      document.getElementById(&quot;principal&quot;).style.display = &quot;block&quot;;
+      document.getElementById(&quot;sobre&quot;).style.display = &quot;none&quot;;
+    }
+    function mostrarPlayer() {
+      document.getElementById(&quot;principal&quot;).style.display = &quot;block&quot;;
+      document.getElementById(&quot;sobre&quot;).style.display = &quot;none&quot;;
+      window.location.hash = &quot;player&quot;;
+    }
+    function mostrarSobre() {
+      document.getElementById(&quot;principal&quot;).style.display = &quot;none&quot;;
+      document.getElementById(&quot;sobre&quot;).style.display = &quot;block&quot;;
+    }
+
+    // Simulador de ouvintes online (1601&#8211;1699)
+    function atualizarOuvintes() {
+      var min = 1601;
+      var max = 1699;
+      var ouvintes = Math.floor(Math.random() * (max - min + 1)) + min;
+      var span = document.getElementById(&quot;ouvintes&quot;);
+      if (span) {
+        span.textContent = ouvintes;
+      }
+    }
+
+    document.addEventListener(&quot;DOMContentLoaded&quot;, function() {
+      atualizarOuvintes();
+      setInterval(atualizarOuvintes, 10000);
+    });
+  </script>
+</body>
 </html>
